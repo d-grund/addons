@@ -15,7 +15,7 @@ hassio_api: true
 host_network: true
 automount: true
 moredisks: []
-image: homeassistant/{arch}-addon-samba
+image: ghcr.io/d-grund/addons_samba
 init: false
 map:
   - backup:rw
