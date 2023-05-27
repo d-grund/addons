@@ -24,7 +24,6 @@
    dos charset = CP850
    unix charset = UTF-8
 
-
 [backup]
    browseable = yes
    writeable = yes

@@ -8,7 +8,6 @@ profile addon_samba flags=(attach_disconnected,mediate_deleted) {
   #include <abstractions/winbind>
   #include <abstractions/bash>
 
-
   capability,
   file,
   signal (send) set=(kill,term,int,hup,cont),
@@ -41,6 +40,7 @@ profile addon_samba flags=(attach_disconnected,mediate_deleted) {
   /dev/** mrwkl,
   /tmp/** mrkwl,
 
+
   # Bashio
   /usr/lib/bashio/** ix,
   /tmp/** rwk,
@@ -51,7 +51,9 @@ profile addon_samba flags=(attach_disconnected,mediate_deleted) {
   # suppress ptrace denials when using 'docker ps' or using 'ps' inside a container
   ptrace (trace,read) peer=docker-default,
 
+
   # docker daemon confinement requires explict allow rule for signal
   signal (receive) set=(kill,term) peer=/usr/bin/docker,
 
 }
+
