@@ -3,7 +3,7 @@ version: latest
 slug: samba
 name: Samba share
 description: Expose Home Assistant backup and media with SMB/CIFS mount USB in media
-url: https://github.com/home-assistant/addons/tree/master/samba
+url: https://github.com/d-grund/addons/tree/master/samba
 codenotary: notary@home-assistant.io
 arch:
   - armhf
