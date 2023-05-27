@@ -1,5 +1,5 @@
 ---
-version: 10.0.3
+version: latest
 slug: samba
 name: Samba share
 description: Expose Home Assistant backup and media with SMB/CIFS mount USB in media
