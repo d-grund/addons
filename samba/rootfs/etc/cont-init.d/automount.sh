@@ -95,11 +95,7 @@ function mount_disk() { # $1 disk $2 path
 }
 
 # Mount external drive
-bashio::log.info "Protection Mode is $(bashio::addon.protected)"
-if $(bashio::addon.protected) && (bashio::config.has_value 'moredisks' || bashio::config.true 'automount'); then
-     bashio::log.warning "MoreDisk and Automount ignored because ADDON in Protected Mode!"
-     bashio::config.suggest "protected" "moredisk only work when Protection mode is disabled"
-elif bashio::config.has_value 'moredisks' || bashio::config.true 'automount'; then
+if bashio::config.has_value 'moredisks' || bashio::config.true 'automount'; then
      bashio::log.info "MoreDisk or Automount option found!"
 
      # Check supported FS
