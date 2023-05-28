@@ -30,10 +30,10 @@ fi
 bashio::log.info "Interfaces: $(printf '%s ' "${interfaces[@]}")"
 
 # Generate Samba configuration.
-jq ".interfaces = $(jq -c -n '$ARGS.positional' --args -- "${interfaces[@]}")" /data/options.json \
-    | tempio \
-      -template /usr/share/tempio/smb.gtpl \
-      -out /etc/samba/smb.conf
+jq ".interfaces = $(jq -c -n '$ARGS.positional' --args -- "${interfaces[@]}")" /data/options.json |
+    tempio \
+        -template /usr/share/tempio/smb.gtpl \
+        -out /etc/samba/smb.conf
 
 # Init user
 username=$(bashio::config 'username')
@@ -41,5 +41,5 @@ password=$(bashio::config 'password')
 addgroup "${username}"
 adduser -D -H -G "${username}" -s /bin/false "${username}"
 # shellcheck disable=SC1117
-echo -e "${password}\n${password}" \
-    | smbpasswd -a -s -c "/etc/samba/smb.conf" "${username}"
+echo -e "${password}\n${password}" |
+    smbpasswd -a -s -c "/etc/samba/smb.conf" "${username}"

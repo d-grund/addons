@@ -1,4 +1,4 @@
-#!/command/with-contenv bashio
+#!/usr/bin/with-contenv bashio
 # shellcheck shell=bash
 # ==============================================================================
 # Mounting external HD and modify the smb.conf
@@ -39,10 +39,10 @@ function disk2label() { # $1 disk  return (label disk or id)
 }
 
 # mount a disk from parameters
-function mount_disk() { # $1 disk $2 path 
+function mount_disk() { # $1 disk $2 path
      disk=$1
      path=$2
-     
+
      if [[ $disk == id:* ]]; then
           bashio::log.debug "Disk ${disk:3} is an ID"
           dev=/dev/disk/by-id/${disk:3}
@@ -52,7 +52,7 @@ function mount_disk() { # $1 disk $2 path
                unset dev
           fi
      else
-          dev=$(blkid |grep "$disk")
+          dev=$(blkid | grep "$disk")
      fi
 
      if [ -z $dev ]; then

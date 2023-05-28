@@ -2,7 +2,7 @@
 version: latest
 slug: samba
 name: Samba share
-description: Expose Home Assistant backup and media with SMB/CIFS mount USB in media
+description: Expose Home Assistant backup and media with SMB/CIFS, mount USB in media
 url: https://github.com/d-grund/addons/tree/master/samba
 codenotary: notary@home-assistant.io
 arch:
@@ -15,7 +15,7 @@ hassio_api: true
 host_network: true
 automount: true
 moredisks: []
-image: homeassistant/{arch}-addon-samba
+image: ghcr.io/d-grund/addons/{arch}_samba
 init: false
 map:
   - backup:rw
@@ -52,7 +52,8 @@ schema:
   automount: bool?
   moredisks:
     - str
-udev: true
+udev:
+  true
   #usb: true
 host_dbus: true
 kernel_modules: true
