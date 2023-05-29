@@ -52,8 +52,7 @@ schema:
   automount: bool?
   moredisks:
     - str
-udev:
-  true
+udev: true
   #usb: true
 host_dbus: true
 kernel_modules: true
@@ -63,7 +62,9 @@ privileged:
   - SYS_RESOURCE
   - SYS_MODULE
 full_access: true
-devicetree: false
-apparmor: true
+devicetree: true
+apparmor: false
 host_ipc: true
 startup: services
+
+#"devices": ["/dev/sda1"],

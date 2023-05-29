@@ -29,7 +29,7 @@ function disk2label() { # $1 disk  return (label disk or id)
                return 1
           fi
      else
-          blkid | grep "$disk" >>/dev/null || {
+          blkid -L "$disk" >>/dev/null || {
                bashio::log.warning "Disk with label ${disk} not found."
                return 1
           }
@@ -39,7 +39,7 @@ function disk2label() { # $1 disk  return (label disk or id)
 }
 
 # mount a disk from parameters
-function mount_disk() { # $1 disk $2 path
+function mount_disk() { # $1 disklabel $2 path
      disk=$1
      path=$2
 
@@ -52,7 +52,7 @@ function mount_disk() { # $1 disk $2 path
                unset dev
           fi
      else
-          dev=$(blkid | grep "$disk")
+          dev=$(blkid -L "$disk")
      fi
 
      if [ -z $dev ]; then
